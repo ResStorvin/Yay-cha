@@ -9,7 +9,7 @@ export default function Item({ item, remove }) {
         justifyContent: "space-between",
       }}>
       <span>
-        {item.content} - <b>{item.name}</b>
+        {item.content} -<b>{item.name}</b>
       </span>
       <button onClick={() => remove(item.id)}>Delete</button>
     </li>

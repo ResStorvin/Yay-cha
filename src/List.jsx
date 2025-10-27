@@ -1,4 +1,4 @@
-export default function List(props) {
+export default function List({ children }) {
   return (
     <ul
       style={{
@@ -9,7 +9,7 @@ export default function List(props) {
         borderRadius: 8,
         overflow: "hidden",
       }}>
-      {props.children}
+      {children}
     </ul>
   );
 }
