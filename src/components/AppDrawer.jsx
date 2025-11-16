@@ -20,10 +20,12 @@ import {
 } from "@mui/icons-material";
 
 import { deepPurple } from "@mui/material/colors";
+
 import { useApp } from "../ThemedApp";
 
 export default function AppDrawer() {
   const { showDrawer, setShowDrawer, auth, setAuth } = useApp();
+
   return (
     <div>
       <Drawer open={showDrawer} onClose={() => setShowDrawer(false)}>
@@ -66,6 +68,7 @@ export default function AppDrawer() {
             </ListItemButton>
           </ListItem>
           <Divider />
+
           {auth && (
             <>
               <ListItem>
@@ -86,6 +89,7 @@ export default function AppDrawer() {
               </ListItem>
             </>
           )}
+
           {!auth && (
             <>
               <ListItem>

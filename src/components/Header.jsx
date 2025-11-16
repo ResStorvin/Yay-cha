@@ -1,24 +1,33 @@
 import { useApp } from "../ThemedApp";
+
 import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
+
 import {
   Menu as MenuIcon,
   Add as AddIcon,
   LightMode as LightModeIcon,
+  DarkMode as DarkModeIcon,
 } from "@mui/icons-material";
 
 export default function Header() {
-  const { showForm, setShowForm, mode, setMode } = useApp();
+  const { setShowDrawer, showForm, setShowForm, mode, setMode } = useApp();
+
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton color="inherit" edge="start">
+        <IconButton
+          color="inherit"
+          edge="start"
+          onClick={() => setShowDrawer(true)}>
           <MenuIcon />
         </IconButton>
         <Typography sx={{ flexGrow: 1, ml: 2 }}>Yaycha</Typography>
+
         <Box>
           <IconButton color="inherit" onClick={() => setShowForm(!showForm)}>
             <AddIcon />
           </IconButton>
+
           {mode === "dark" ? (
             <IconButton
               color="inherit"
@@ -31,7 +40,7 @@ export default function Header() {
               color="inherit"
               edge="end"
               onClick={() => setMode("dark")}>
-              <LightModeIcon />
+              <DarkModeIcon />
             </IconButton>
           )}
         </Box>
