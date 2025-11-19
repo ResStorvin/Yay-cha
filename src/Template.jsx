@@ -1,34 +1,34 @@
-import { Box, Container, Snackbar } from '@mui/material';
+import { Box, Container, Snackbar } from "@mui/material";
 
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 
-import Header from './components/Header';
-import AppDrawer from './components/AppDrawer';
+import Header from "./components/Header";
+import AppDrawer from "./components/AppDrawer";
 
-import { useApp } from './ThemedApp';
+import { useApp } from "./ThemedApp";
 
 export default function Template() {
-    const { globalMsg, setGlobalMsg } = useApp();
-    
-    return (
-        <Box>
-            <Header />
-            <AppDrawer />
+  const { globalMsg, setGlobalMsg } = useApp();
 
-            <Container maxWidth="sm" sx={{mt: 4}}>
-                <Outlet />
-            </Container>
+  return (
+    <Box>
+      <Header />
+      <AppDrawer />
 
-            <Snackbar
-                anchorOrigin={{
-                    horizontal: "center",
-                    vertical: "bottom",
-                }}
-                open={Boolean(globalMsg)}
-                autoHideDuration={3000}
-                onClose={() => setGlobalMsg(null)}
-                message={globalMsg}
-            />
-        </Box>
-    )
+      <Container maxWidth="sm" sx={{ mt: 4 }}>
+        <Outlet />
+      </Container>
+
+      <Snackbar
+        anchorOrigin={{
+          horizontal: "center",
+          vertical: "bottom",
+        }}
+        open={Boolean(globalMsg)}
+        autoHideDuration={6000}
+        onClose={() => setGlobalMsg(null)}
+        message={globalMsg}
+      />
+    </Box>
+  );
 }
